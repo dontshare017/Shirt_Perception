@@ -1,0 +1,15 @@
+{
+    "transform": true,
+    "rgb_root_dir": "/Users/YifeiHu/Desktop/Cornell/Emprise_Lab/Shirt_Perception/downsampled_final/rgb",
+    "depth_root_dir": "/Users/YifeiHu/Desktop/Cornell/Emprise_Lab/Shirt_Perception/downsampled_final/depth",
+    "aug_rgb_root_dir" : "/Users/YifeiHu/Desktop/Cornell/Emprise_Lab/Shirt_Perception/downsampled_final/color_aug_rgb",
+    "runspath": "/home/yh464/venv/Shirt_Perception/network_split/run7",
+    "chkpnts_path": "/home/yh464/venv/Shirt_Perception/network_split/run6/2/chkpnts/model_epoch_32_20240513_101952.pth",
+    "batch_size": 4,
+    "lr": 0.001,
+    "w_decay": 0.0001,
+    "gamma": 0.5,
+    "epochs": 250,
+    "step_size": 20,
+    "model_path" : "/Users/YifeiHu/Downloads/model/grayscale/model_epoch_102_20240523_030830.pth"
+}
