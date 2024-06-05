@@ -1,0 +1,24 @@
+#!/bin/bash
+#SBATCH -J shirt_annotation_test                        # Job name
+#SBATCH -o shirt_annotation_test_%j.out                  # output file (%j expands to jobID)
+#SBATCH -e shirt_annotation_test_%j.err                  # error log file (%j expands to jobID)
+#SBATCH --mail-type=ALL                      # Request status by email
+#SBATCH --mail-user=yh464@cornell.edu        # Email address to send results to.
+#SBATCH -N 1                                 # Total number of nodes requested
+#SBATCH -n 16
+#SBATCH -t 24:00:00
+#SBATCH --mem=32g
+# Total number of cores requested
+#SBATCH --get-user-env                       # retrieve the users login environment
+#SBATCH --partition=bhattacharjee       # Request partition
+#SBATCH --gres=gpu:3090:1                  # Type/number of GPUs needed
+#SBATCH --account=bhattacharjee              # Specify the account
+
+
+export PATH=/share/apps/anaconda3/2021.05/bin:$PATH
+
+eval "$(conda shell.bash hook)"
+# Activate conda environment
+conda activate dressing # <--- !!!!!You will need to REPLACE THIS WITH YOUR OWN ENV!!!!!!!
+cd Shirt_Perception
+python train_greyscale.py
