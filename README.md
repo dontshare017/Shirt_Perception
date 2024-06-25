@@ -7,7 +7,6 @@ Data post processing:
 - Depth pipeline: cropping (`crop_img.py`) -> normalization (`renormalization.py`) -> downsampling (`downsample.py`)
 Each script can be called independently (remember to change the input & output directory). Pipeline scripts are WIP to achieve integrate these steps.
 
-The model training script, `train_greyscale.py`, takes post-processed data and creates a data loader object, `RGBDDataset`, which is defined in `rgbd_dataset_greyscale`. Refer to this script for the specifics of model training.
-`batch_test.py` takes in a model weight and outputs its predictions on a directory of images. 
+The model training script with updated loss function is **'train_greyscale_updated_loss.py'** takes post-processed data and creates a data loader object, `RGBDDataset`, which is defined in `rgbd_dataset_greyscale`. Refer to this script for the specifics of model training. It contains the updated custom loss function which consists of both the modified mse loss for distance and angle difference. This script takes **configs2.json** as the input file in which all the necessary paths are required to be changed in order for it to function.
 
-The model training script with updated loss function is 'train_greyscale_updated_loss.py' which does the same process as above mentioned 'train_greyscale.py' but with the updated custom loss function which consists of both the modified mse loss for distance and angle difference. This script takes configs2.json as the input file in which all the necessary paths are required to be changed in order for it to function.
+**`model_training/batch_test_updated_loss.py`** takes in a model weight and outputs its predictions on a directory of images. It takes **configs_split2.json** file as an input for all the paths as well as has a variable **save_path** that needs to be modified inside the script to store the path for predictions
